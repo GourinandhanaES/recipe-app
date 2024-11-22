@@ -8,16 +8,10 @@ const Wishlist = () => {
   const dispatch = useDispatch()
   const userWishlist = useSelector(state=>state.wishlistReducer)
 
-  const handlecart = (recipe)=>{
-    dispatch(removeItem(recipe.id))
-    dispatch(addToCart(recipe))
-    const existingProduct = userCart?.find(item=>item?.id==product.id)
-    if(existingProduct){
-      alert("Product is incrementing in your wishlist!!!")
-    }else{
-      alert("Product Added to your wishlist")
-    }
-  }
+  const handleImageClick = (recipe) => {
+    const query = encodeURIComponent(recipe + " recipe"); 
+    window.open(`https://www.youtube.com/results?search_query=${query}`, '_blank');
+  };
   
   return (
     <>
@@ -31,7 +25,7 @@ const Wishlist = () => {
         {
           userWishlist?.map(recipe=>(
             <div key={recipe?.id} className="rounded border p-2 shadow">
-              <img width={'100%'} height={'200px'} src={recipe?.image}  alt="" />
+              <img width={'100%'} height={'200px'} src={recipe?.image} onClick={() => handleImageClick(recipe.name)} alt={recipe.name} />
               <div className="text-center">
                 <h3 className="text-xl font-bold">{recipe?.name} </h3>
                 <div className="flex justify-evenly mt-3">
@@ -45,8 +39,8 @@ const Wishlist = () => {
     </>
     :
     <div className="flex flex-col justify-center items-center">
-      <img className='w-[620px]  h-1/2' src="https://www.adanione.com/~/media/Foundation/Adani/emptyImages/empty_cart.gif" width={'500px'} alt="" />
-      <h1 className='text-4xl text-red-600 mt-3'>Your Wishlist is Empty!!!!</h1>
+      <img className='w-[620px]  h-1/2' src="https://i.pinimg.com/originals/29/a9/0e/29a90ed99d561dbcdbfe36df884b1709.gif" width={'500px'} alt="" />
+      <h1 className='text-4xl text-red-600 mt-3'>Your Favourites is Empty!!!!</h1>
     </div>
       }
     </div>
