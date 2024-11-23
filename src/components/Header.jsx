@@ -8,7 +8,7 @@ const Header = ({insideHome}) => {
   const dispatch = useDispatch()
   const userWishlist = useSelector(state=>state.wishlistReducer)
   return (
-    <nav className='flex bg-yellow-400 fixed w-full p-5 text-white font-bold'>
+    <nav className='flex bg-yellow-600 fixed w-full p-5 text-white font-bold'>
       <Link className='text-2xl font-bold' to={'/'}> <i className="fa-solid fa-utensils me-1"></i> Tasty Trails</Link>
       <ul className='flex-1 text-right justify-end hidden sm:flex'>
         { insideHome && <li className='list-none inline-block px-5 text-black'><input style={{width:'300px'}} onChange={e=>dispatch(searchProduct(e.target.value.toLowerCase()))} className='rounded p-1' type="text" placeholder='Search cuisines Here!' /></li>}

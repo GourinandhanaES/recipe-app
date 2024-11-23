@@ -39,7 +39,7 @@ const Home = () => {
   return (
     <>
     <Header insideHome={true}/>
-    <div style={{paddingTop:'100px'}} className='container px-4 mx-auto'>
+    <div style={{paddingTop:'100px'}} className='container px-4 mx-auto '>
     {
       loading?
       <div className='flex justify-center items-center my-5 text-lg'>
@@ -56,7 +56,7 @@ const Home = () => {
           <img width={"100%"} height={"200px"} src={recipes?.image} onClick={() => handleImageClick(recipes.name)} alt={recipes.name} />
           <div className="text-center">
             <h3 className="text-xl font-bold">{recipes?.name}</h3>
-            <Link to={`/${recipes?.id}/view`} className='bg-yellow-400 rounded p-1 mt-3 text-white inline-block'>View More</Link>
+            <Link to={`/${recipes?.id}/view`} className='bg-yellow-600 rounded p-1 mt-3 text-white inline-block'>View More</Link>
           </div>
         </div>
         ))
