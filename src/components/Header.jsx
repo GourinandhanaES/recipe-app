@@ -21,7 +21,7 @@ const Header = ({insideHome}) => {
             <input
               style={{ width: '250px' }}
               onChange={e => dispatch(searchProduct(e.target.value.toLowerCase()))}
-              className='rounded p-1'
+              className='rounded p-1 text-black'
               type="text"
               placeholder='Search cuisines Here!'
             />
